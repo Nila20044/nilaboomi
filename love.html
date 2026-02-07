@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Letter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 420px;
+      text-align: center;
+      transform: scale(0.95);
+      animation: pop 0.6s ease forwards;
+    }
+
+    @keyframes pop {
+      to { transform: scale(1); }
+    }
+
+    h1 {
+      color: #e63946;
+      margin-top: 0;
+    }
+
+    .letter {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #444;
+      margin: 20px 0;
+      min-height: 120px;
+    }
+
+    button {
+      background: #e63946;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(230,57,70,0.3);
+    }
+
+    .heart {
+      font-size: 40px;
+      margin-top: 10px;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>My Love 🤍</h1>
+    <div class="letter" id="letter">
+      Click the button to open your love letter...
+    </div>
+    <button onclick="revealLetter()">Open Letter</button>
+
+    <div class="heart">bodlee🤍🌎</div>
+  </div>
+
+  <script>
+    const text = `thangameaaa 🤍
+ Enna di thangoo apa pathalum sanda potunea irruka,
+ romba kasatama ah iruku mu 
+ nee nah romba pedikum mama apayum una na hurt pananum 
+ nanichuthula daa athana hurt panirutha ,
+ 'sorry laddu'
+ love u thangooo 🤍
+
+Thank you for being you, and for sharing your beautiful soul with me.
+Forever yours.`;
+
+    function revealLetter() {
+      const letterBox = document.getElementById("letter");
+      letterBox.textContent = "";
+      let i = 0;
+
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          letterBox.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 35);
+    }
+  </script>
+</body>
+</html>
